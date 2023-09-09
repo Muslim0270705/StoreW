@@ -3,6 +3,8 @@ import logo from "../../../photos/usave.png"
 import {Link} from "react-router-dom";
 import {CgProfile} from "react-icons/cg"
 const Header = () => {
+    const userU = localStorage.getItem("user") ? localStorage.getItem("user") : ""
+
     return (
         <section id="header">
             <a href="#"><img src={logo} className="logo" alt="logoo"/></a>
@@ -14,7 +16,10 @@ const Header = () => {
                     <li><Link to={'/about'}>About</Link></li>
                     <li><Link to={"/contact"}>Contact</Link></li>
                     <li id="lg-bag"><Link to={"/cart"}><i className="fa fa-shopping-bag"></i></Link></li>
-                    <li id="lg-bag"><Link to={"/register"}><CgProfile/></Link></li>
+                    {
+                        userU ? "" :<li id="lg-bag"><Link to={"/register"}><CgProfile/></Link></li>
+
+                    }
                     <a href="#" id="close" className="fa fa-times"></a>
 
                 </ul>
