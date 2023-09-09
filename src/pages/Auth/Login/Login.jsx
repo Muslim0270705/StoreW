@@ -38,7 +38,6 @@ const Login = () => {
                 localStorage.setItem("user",JSON.stringify({
                     ...resolve.data.user,
                     token: resolve.data.accessToken
-
                 }))
 
             })

@@ -9,7 +9,6 @@ const userSlice = createSlice({
     initialState:{
         user:{
             email: localStorage.getItem("user") !== null ? JSON.parse(localStorage.getItem("user")).email : "",
-            avatar:localStorage.getItem("user") !== null ? JSON.parse(localStorage.getItem("user")).avatar : "",
             id:localStorage.getItem("user") !== null ? JSON.parse(localStorage.getItem("user")).id : "",
             login:localStorage.getItem("user") !== null ? JSON.parse(localStorage.getItem("user")).login : "",
             password:localStorage.getItem("user") !== null ? JSON.parse(localStorage.getItem("user")).password : "",
@@ -24,11 +23,8 @@ const userSlice = createSlice({
         },
 
         logOutAcc: (state,{payload}) => {
-            state.user = {
-                email: "",
-                avatar: "",
-                name:'',
-            }
+            state.user = {}
+            localStorage.removeItem("user")
         },
         addCart: (state,{payload}) => {
 

@@ -19,7 +19,7 @@ const Product1 = () => {
             <h2>Featured Products</h2>
             <p>Summer Collection</p>
             {
-                userU.user?.email === "admin@gmail.com" ?
+                userU.user?.email === "admin@gmail.com" || userU?.email === "admin@gmail.com"?
                     <button className="product__add" onClick={() => navigate("/add")}>add product</button>
                     : ""
 
@@ -29,14 +29,14 @@ const Product1 = () => {
                     data?.map(item => (
                         <Link key={item.id} to={`/oneProduct/${item.id}`} className="pro">
                             {
-                                userU.user?.email === "admin@gmail.com" ?
+                                userU.user?.email === "admin@gmail.com" || userU?.email === "admin@gmail.com" ?
                                     <button className={"pro__btn"} onClick={(e) => {
                                     e.preventDefault()
                                     navigate(`/edit/${item.id}`)
                                 }} >Edit</button> : ""
                             }
                             {
-                                userU.user?.email === "admin@gmail.com" ?
+                                userU.user?.email === "admin@gmail.com" || userU?.email === "admin@gmail.com" ?
                                     <button className="pro__delete" onClick={(e) => {
                                         e.preventDefault()
                                         dispatch(deleteProduct(item.id))
