@@ -2,6 +2,7 @@ import React from 'react';
 import logo from "../../../photos/usave.png"
 import {Link} from "react-router-dom";
 import {CgProfile} from "react-icons/cg"
+import {GrLogout} from "react-icons/gr"
 const Header = () => {
     const userU = localStorage.getItem("user") ? localStorage.getItem("user") : ""
 
@@ -17,7 +18,7 @@ const Header = () => {
                     <li><Link to={"/contact"}>Contact</Link></li>
                     <li id="lg-bag"><Link to={"/cart"}><i className="fa fa-shopping-bag"></i></Link></li>
                     {
-                        userU ? "" :<li id="lg-bag"><Link to={"/register"}><CgProfile/></Link></li>
+                        userU ? <li id="lg-bag"><Link to={"/register"}><GrLogout/></Link></li> :<li id="lg-bag"><Link to={"/register"}><CgProfile/></Link></li>
 
                     }
                     <a href="#" id="close" className="fa fa-times"></a>
